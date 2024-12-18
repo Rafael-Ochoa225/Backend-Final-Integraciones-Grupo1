@@ -20,8 +20,8 @@ exports.crearCliente = async (req, res)=>{
             dni
         })
 
-        await nuevocli.save()
-        res.status(201).send('Cliente Registrado')
+        const saveCli = await nuevocli.save()
+        res.json(saveCli)
     } catch (error) {
         console.log(error)
         res.status(400).send('hubo un error al registrar el cliente')

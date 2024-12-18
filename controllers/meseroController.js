@@ -20,8 +20,8 @@ exports.crearMesero = async (req, res)=>{
             email,
             password: passwordEncriptado
         })
-        await nuevoMesero.save()
-        res.status(201).send('Mesero Registrado con éxito')
+        const saveMes = await nuevoMesero.save()
+        res.json(saveMes)
     } catch (error) {
         console.log(error)
         res.status(400).send('hubo un error')
